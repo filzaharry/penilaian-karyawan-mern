@@ -1,0 +1,51 @@
+.departemen {
+    margin-right: 10px;
+    margin-top: 5px;
+    max-width: 400px;
+    width: 300px;
+    box-shadow: 10px 10px 23px -7px rgba(0,0,0,0.25);
+    border-radius: 2px;
+    display: inline-block;
+    .row {
+        margin-bottom: 5px;
+      .image-profile {
+        width: 60px;
+        height: 50px;
+        display: inline-block;
+        img {
+          width: 100px;
+          height: 80px;
+          margin-bottom: -5px;
+        }
+      }
+      .col-name {
+        display: inline-block;
+        width: 190px;
+        max-width: 200px;
+        margin-left: 50px;
+        .departemen-name {
+          font-size: 16px;
+          font-weight: bold;
+          margin-top: 10px;
+          text-align: left !important;
+        }
+        .departemen-supervisor {
+          font-size: 13px;
+          font-weight: normal;
+          margin-top: -10px;
+          color: grey;
+          text-align: left !important;
+        }
+      }
+    }
+  }
+  .departemen:hover {
+    background: #23232e;
+    color: white
+  }
+  
+  
+  
+  
+  
+  

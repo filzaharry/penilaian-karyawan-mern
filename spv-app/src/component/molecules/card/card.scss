@@ -1,0 +1,38 @@
+.cta-home {
+  margin: auto;
+  .row {
+    margin-bottom: 5px;
+    margin: auto;
+    .card {
+      margin-bottom: 5px !important;
+      margin: auto;
+      display: inline-block;
+      background-color: whitesmoke;
+      color: grey;
+      max-width: 200px;
+      height: 150px;
+      width: 140px;
+      border-radius: 5px;
+      box-shadow: 10px 10px 43px -27px rgba(0, 0, 0, 0.75);
+      .img-card {
+        padding: 10px;
+        background-color: #ffc3a6;
+        border-radius: 100%;
+        width: 80px;
+        margin: auto;
+        img {
+          color: #23232e;
+          height: 60px;
+        }
+      }
+      p {
+        font-family: arial;
+      }
+    }
+    .card:hover {
+      background-color: #fc8950;
+      box-shadow: 10px 10px 43px -27px #ff6d22;
+      color: black;
+    }
+  }
+}
