@@ -27,8 +27,8 @@ exports.createKaryawan = async (req, res, next) => {
   
     // const obj = JSON.parse(JSON.stringify(req.body));
     const image = req.file.path;
-    const name = req.body.name;
-    const kontrak = req.body.kontrak;
+    const name = req.body.nama;
+    // const kontrak = req.body.kontrak;
     const tglMulai = req.body.tglMulai;
     const tempatLahir = req.body.tempatLahir;
     const tglLahir = req.body.tglLahir;
@@ -37,15 +37,17 @@ exports.createKaryawan = async (req, res, next) => {
     const alamat = req.body.alamat;
     const porto = req.body.porto;
     const cv = req.body.cv;
+    const departemenId = req.body.departemen
+    const jabatanId = req.body.jabatan
 
-    const { departemenId, jabatanId } = req.body;
+    // const { departemenId, jabatanId } = req.body;
     const departemen = await departemenSchema.findOne({ _id: departemenId });
     const jabatan = await jabatanSchema.findOne({ _id: jabatanId });
   
     const PostKaryawan = {
       image: image,
       name: name,
-      kontrak: kontrak,
+      // kontrak: kontrak,
       tglMulai: tglMulai,
       tempatLahir: tempatLahir,
       tglLahir: tglLahir,
@@ -58,16 +60,17 @@ exports.createKaryawan = async (req, res, next) => {
       jabatanId,
     };
     
-
-    const karyawan = await karyawanSchema.create(PostKaryawan)
+    const karyawanObject = new karyawanSchema(PostKaryawan)
+    const karyawan = await karyawanObject.save();
+    // console.log(karyawan)
     departemen.karyawanId.push({ _id: karyawan._id })
     await departemen.save()
     jabatan.karyawanId.push({ _id: karyawan._id })
     await jabatan.save()
     await karyawan.save()
     
-
   } catch (error) {
+    console.log(error)
     next(error);
   }
   // handle dynamic error validation with condition

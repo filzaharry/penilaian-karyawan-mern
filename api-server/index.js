@@ -21,6 +21,10 @@ const nilaiSpvRoutes = require("./src/routes/nilaispv");
 // const nilaiHrdRoutes = require("./src/routes/nilaihrd");
 const nilaiTotalRoutes = require("./src/routes/nilai");
 // multer
+
+// handle CORS Origin
+app.use(cors())
+
 const fileStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "images");
@@ -50,8 +54,7 @@ app.use(
   multer({ storage: fileStorage, fileFilter: fileFilter }).single("image")
 );
 
-// handle CORS Origin
-app.use(cors())
+
 // app.use((req, res, next) => {
 //   res.setHeader('Access-Control-Allow-Origin', '*');
 //   res.setHeader('Access-Control-Allow-Methods','GET, POST, PUT, PATCH, DELETE, OPTIONS');
@@ -103,4 +106,4 @@ mongoose
     // port mongoose running localhost:4000
     app.listen(4000, () => console.log("Koneksi ke mongoose sukses gan!!!"));
   })
-  .catch(() => console.log("error woyy:", error));
+  .catch((error) => console.log("error woyy:", error));
