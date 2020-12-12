@@ -67,7 +67,6 @@ exports.createKaryawan = async (req, res, next) => {
     await departemen.save()
     jabatan.karyawanId.push({ _id: karyawan._id })
     await jabatan.save()
-    await karyawan.save()
     
   } catch (error) {
     console.log(error)
